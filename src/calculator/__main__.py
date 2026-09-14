@@ -6,6 +6,10 @@ def add(a: float, b: float) -> float:
     return a + b
 
 
+def subtract(a: float, b: float) -> float:
+    return a - b
+
+
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(prog="calculator")
     subparsers = parser.add_subparsers(dest="command", required=True)
@@ -13,6 +17,10 @@ def build_parser() -> argparse.ArgumentParser:
     add_parser = subparsers.add_parser("add", help="Add two numbers")
     add_parser.add_argument("a", type=float)
     add_parser.add_argument("b", type=float)
+
+    subtract_parser = subparsers.add_parser("subtract", help="Subtract two numbers")
+    subtract_parser.add_argument("a", type=float)
+    subtract_parser.add_argument("b", type=float)
 
     return parser
 
@@ -23,6 +31,10 @@ def main(argv=None) -> int:
 
     if args.command == "add":
         print(add(args.a, args.b))
+        return 0
+
+    if args.command == "subtract":
+        print(subtract(args.a, args.b))
         return 0
 
     parser.print_help()
