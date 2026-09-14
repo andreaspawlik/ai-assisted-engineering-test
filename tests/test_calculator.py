@@ -1,4 +1,4 @@
-from calculator.__main__ import add, main, subtract
+from calculator.__main__ import add, main, multiply, subtract
 
 
 def test_add():
@@ -17,3 +17,12 @@ def test_subtract():
 def test_cli_subtract(capsys):
     assert main(["subtract", "5", "3"]) == 0
     assert capsys.readouterr().out.strip() == "2.0"
+
+
+def test_multiply():
+    assert multiply(4, 3) == 12
+
+
+def test_cli_multiply(capsys):
+    assert main(["multiply", "4", "3"]) == 0
+    assert capsys.readouterr().out.strip() == "12.0"
