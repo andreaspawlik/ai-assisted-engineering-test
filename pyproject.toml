@@ -1,0 +1,15 @@
+[project]
+name = "calculator"
+version = "0.1.0"
+description = "Tiny example CLI calculator for practicing agent-driven, issue-based development."
+requires-python = ">=3.9"
+
+[project.optional-dependencies]
+dev = ["pytest"]
+
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]
